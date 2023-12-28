@@ -1,0 +1,4 @@
+Next:
+- commit & push
+- make all div to Link in /data-maintanance
+- figure out how to make the 4 components and link/open them(?)
