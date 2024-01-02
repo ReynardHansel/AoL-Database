@@ -20,4 +20,20 @@
   .card {
     @apply flex items-center justify-center p-4 rounded-md border border-gray-500 transform transition-all duration-200 hover:shadow-lg hover:scale-[101%] text-xl lg:text-2xl
   }
+
+  .form {
+    @apply h-screen flex flex-col items-center justify-center gap-7 text-lg
+  }
+
+  .input-section {
+    @apply flex flex-col items-center justify-center gap-1;
+  }
+
+  .input {
+    @apply border border-gray-500 rounded-md py-1 px-2
+  }
+
+  .subm-btn {
+    @apply border border-black rounded-full hover:bg-black hover:text-white duration-200 transition-all px-6 py-2
+  }
 }

@@ -7,7 +7,7 @@ export default function DataMaintanance() {
         href={{
             pathname: "../CRUD",
             query: {
-                value: 'sailor'
+                value: 'sailors'
             }
         }}
         >
@@ -18,7 +18,7 @@ export default function DataMaintanance() {
         href={{
             pathname:"../CRUD",
             query: {
-                value:'boat'
+                value:'boats'
             }
         }}
         >
@@ -29,7 +29,7 @@ export default function DataMaintanance() {
         href={{
             pathname:"../CRUD",
             query: {
-                value:'reserve'
+                value:'reserves'
             }
         }}
         >

@@ -1,4 +1,9 @@
 Next:
-- commit & push
-- make all div to Link in /data-maintanance
-- figure out how to make the 4 components and link/open them(?)
+- create styling class for the forms. starting from CRUD/insert/page.js
+- create individual contents for CRUD components
+
+Notes:
+- (sailor/boat/reserve) value changed to (sailors/boats/reserves)
+
+Next development:
+- Create dropdowns for the inputs instead of just inserting text all the time
