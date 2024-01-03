@@ -1,9 +1,9 @@
 Next:
-- create styling class for the forms. starting from CRUD/insert/page.js
-- create individual contents for CRUD components
+- Create update page
 
 Notes:
 - (sailor/boat/reserve) value changed to (sailors/boats/reserves)
 
 Next development:
 - Create dropdowns for the inputs instead of just inserting text all the time
+- Try to show the to-be-deleted datas (ex: sailor name) when choosing the id
