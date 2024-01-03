@@ -1,5 +1,7 @@
 Next:
-- Create individual pages for viewing each (sailors, boats, reserves)
+- Reynard:
+    - Make the report page
+    - Make the update page
 
 Notes:
 - (sailor/boat/reserve) value changed to (sailors/boats/reserves)

@@ -22,16 +22,16 @@ export default function Select() {
       <table className="p-6 w-full max-w-screen divide-y divide-gray-200">
         <thead className="bg-gray-50">
           <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
               ID
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
               NAME
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
               RATING
             </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
               AGE
             </th>
           </tr>
@@ -39,10 +39,10 @@ export default function Select() {
         <tbody className="bg-white">
           {sailors.map((sailor) => (
             <tr key={sailor.sid} className="border-b">
-              <td className="px-6 py-4 whitespace-nowrap">{sailor.sid}</td>
-              <td className="px-6 py-4 whitespace-nowrap">{sailor.sname}</td>
-              <td className="px-6 py-4 whitespace-nowrap">{sailor.rating}</td>
-              <td className="px-6 py-4 whitespace-nowrap">{sailor.age}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-center">{sailor.sid}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-center">{sailor.sname}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-center">{sailor.rating}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-center">{sailor.age}</td>
             </tr>
           ))}
         </tbody>
