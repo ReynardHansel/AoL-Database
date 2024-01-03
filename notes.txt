@@ -1,5 +1,5 @@
 Next:
-- Create update page
+- Create individual pages for viewing each (sailors, boats, reserves)
 
 Notes:
 - (sailor/boat/reserve) value changed to (sailors/boats/reserves)
