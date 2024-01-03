@@ -5,7 +5,7 @@ export default function Select() {
   const [sailors, setSailors] = useState([]);
 
   useEffect(() => {
-    fetch("/api/getsailors")
+    fetch("/api/get/getsailors")
       .then((res) => res.json())
       .then((data) => {
         setSailors(data.data);
