@@ -34,13 +34,24 @@ export default function Select() {
           </tr>
         </thead>
         <tbody className="bg-white">
-          {reserves.map((reserve) => (
-            <tr key={reserve.sid} className="border-b">
-              <td className="px-6 py-4 whitespace-nowrap text-center">{reserve.sid}</td>
-              <td className="px-6 py-4 whitespace-nowrap text-center">{reserve.bid}</td>
-              <td className="px-6 py-4 whitespace-nowrap text-center">{reserve.days}</td>
-            </tr>
-          ))}
+          {reserves.length === 0 ? (
+            <tr>
+            <td
+              colSpan="4"
+              className="px-6 py-4 whitespace-nowrap text-center"
+            >
+              Loading data...
+            </td>
+          </tr>
+          ) : (
+            reserves.map((reserve) => (
+              <tr key={reserve.sid} className="border-b">
+                <td className="px-6 py-4 whitespace-nowrap text-center">{reserve.sid}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-center">{reserve.bid}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-center">{reserve.days}</td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>

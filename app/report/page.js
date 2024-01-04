@@ -64,17 +64,21 @@ export default function Select() {
   return (
     <>
       <div className="grid grid-cols-2 gap-4 p-4 h-screen">
-        <div className="flex flex-col gap-2 justify-center items-center border p-4 rounded">
+        <div className="flex flex-col gap-2 justify-center items-center border border-gray-300 p-4 rounded">
           <p className="text-xl">Jumlah sailors</p>
-          <p className="text-gray-500 text-lg">{sailorSum === null ? "Loading data..." : sailorSum.total}</p>
+          <p className="text-gray-500 text-lg">
+            {sailorSum === null ? "Loading data..." : sailorSum.total}
+          </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center border p-4 rounded">
+        <div className="flex flex-col gap-2 justify-center items-center border border-gray-300 p-4 rounded">
           <p className="text-xl">Jumlah Boats</p>
-          <p className="text-gray-500 text-lg">{boatSum === null ? "Loading data..." : boatSum.total}</p>
+          <p className="text-gray-500 text-lg">
+            {boatSum === null ? "Loading data..." : boatSum.total}
+          </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center border p-4 rounded">
+        <div className="flex flex-col gap-2 justify-center items-center border border-gray-300 p-4 rounded">
           <p className="text-xl text-center">Rata-Rata Rating Sailors</p>
           <p className="text-gray-500 text-lg">
             {sailorAvgRating === null
@@ -83,7 +87,7 @@ export default function Select() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 justify-center items-center border p-4 rounded">
+        <div className="flex flex-col gap-2 justify-center items-center border border-gray-300 p-4 rounded">
           <p className="text-xl text-center">Rata-Rata Age Sailors</p>
           <p className="text-gray-500 text-lg">
             {sailorAvgAge === null

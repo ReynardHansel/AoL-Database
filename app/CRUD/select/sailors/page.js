@@ -37,14 +37,33 @@ export default function Select() {
           </tr>
         </thead>
         <tbody className="bg-white">
-          {sailors.map((sailor) => (
-            <tr key={sailor.sid} className="border-b">
-              <td className="px-6 py-4 whitespace-nowrap text-center">{sailor.sid}</td>
-              <td className="px-6 py-4 whitespace-nowrap text-center">{sailor.sname}</td>
-              <td className="px-6 py-4 whitespace-nowrap text-center">{sailor.rating}</td>
-              <td className="px-6 py-4 whitespace-nowrap text-center">{sailor.age}</td>
+          {sailors.length === 0 ? (
+            <tr>
+              <td
+                colSpan="4"
+                className="px-6 py-4 whitespace-nowrap text-center"
+              >
+                Loading data...
+              </td>
             </tr>
-          ))}
+          ) : (
+            sailors.map((sailor) => (
+              <tr key={sailor.sid} className="border-b">
+                <td className="px-6 py-4 whitespace-nowrap text-center">
+                  {sailor.sid}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-center">
+                  {sailor.sname}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-center">
+                  {sailor.rating}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-center">
+                  {sailor.age}
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>
