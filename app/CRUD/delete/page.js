@@ -41,7 +41,7 @@ export default function Delete({ searchParams }) {
 
           <div className="input-section">
             <label>Enter the specific date to be deleted</label>
-            <input className="input" type="number" required />
+            <input className="input" type="date" required />
           </div>
 
           <button type="submit" className="subm-btn">Delete</button>

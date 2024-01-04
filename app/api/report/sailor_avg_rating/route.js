@@ -4,12 +4,12 @@ import { NextResponse } from "next/server";
 export async function GET() {
   //* somehow the code in the try function works!
   try {
-    const sql = "SELECT * FROM sailors";
+    const sql = "SELECT AVG(rating) AS average_rating FROM sailors";
     const data = await new Promise((resolve, reject) => {
       db.query(sql, (err, result) => {
-        // console.log(result)
+        // console.log(result[0])
         if (err) return reject(err);
-        resolve(result);
+        resolve(result[0]);
       });
     });
 
