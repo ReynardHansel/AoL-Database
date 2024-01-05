@@ -9,3 +9,100 @@ Notes:
 Next development:
 - Create dropdowns for the inputs instead of just inserting text all the time
 - Try to show the to-be-deleted datas (ex: sailor name) when choosing the id
+- Try messing around with the folder structure so you can simplify redundancy in backend
+    Ex: use /sailors route.js for GET, POST, PUT, DELETE, instead of having different files & folders for each
+
+Backup for Copilot:
+// ...other code
+
+const [sailorName, setSailorName] = useState("");
+const [sailorRating, setSailorRating] = useState("");
+const [sailorAge, setSailorAge] = useState("");
+
+const handleChange = (e, setStateFunc) => {
+  setStateFunc(e.target.value);
+};
+
+// ...other code
+
+return (
+  <form className="form">
+    <div className="input-section">
+      <label>Insert Sailor's name</label>
+      <input
+        className="input"
+        type="text"
+        required
+        value={sailorName}
+        onChange={(e) => handleChange(e, setSailorName)}
+      />
+    </div>
+
+    <div className="input-section">
+      <label>Insert Sailor's rating</label>
+      <input
+        className="input"
+        type="number"
+        required
+        min="1"
+        max="10"
+        value={sailorRating}
+        onChange={(e) => handleChange(e, setSailorRating)}
+      />
+    </div>
+
+    <div className="input-section">
+      <label>Insert Sailor's age</label>
+      <input
+        className="input"
+        type="number"
+        min="20"
+        max="80"
+        required
+        value={sailorAge}
+        onChange={(e) => handleChange(e, setSailorAge)}
+      />
+    </div>
+
+    <button onClick={handleSubmit} type="submit" className="subm-btn">
+      Submit
+    </button>
+  </form>
+);
+
+// ...other code
+
+Change the handleSubmit as well:
+// ...other code
+
+const [sailorName, setSailorName] = useState("");
+const [sailorRating, setSailorRating] = useState("");
+const [sailorAge, setSailorAge] = useState("");
+
+const handleChange = (e, setStateFunc) => {
+  setStateFunc(e.target.value);
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  const sailorData = {
+    sname: sailorName,
+    rating: sailorRating,
+    age: sailorAge,
+  };
+
+  fetch(`/api/insert/insert${searchParams.value}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(sailorData),
+  });
+
+  setSailorName("");
+  setSailorRating("");
+  setSailorAge("");
+};
+
+// ...other code
