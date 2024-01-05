@@ -1,18 +1,40 @@
 import { db } from "../../../../database/server";
 import { NextResponse } from "next/server";
 
-export async function DELETE(req, res) {
+export async function POST(request) {
   try {
-    const { sid } = req.query; 
-    const sql = `DELETE FROM sailors WHERE sid = ${sid}`;
+    const { sname, rating, age } = await request.json();
 
-    await db.query(sql, [sid], (err, result) => {
-      if (err) throw err; 
+    const sqlDelete = `DELETE FROM sailors WHERE sname='${sname}'`;
+    const deleteResult = await new Promise((resolve, reject) => {
+      db.query(sqlDelete, (err, result) => {
+        if (err) return reject(err);
+        resolve(result);
+      });
     });
 
-    res.status(204).json({ message: "Sailor deleted successfully" }); 
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Error deleting sailor" });
+    console.log(deleteResult);
+
+    let json_response = {
+      status: "success",
+      data: {
+        sailor: { sname, rating, age },
+      },
+    };
+
+    return new NextResponse(JSON.stringify(json_response), {
+      status: 201,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    let error_response = {
+      status: "error",
+      message: error.message,
+    };
+
+    return new NextResponse(JSON.stringify(error_response), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 }

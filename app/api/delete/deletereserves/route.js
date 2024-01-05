@@ -1,18 +1,45 @@
 import { db } from "../../../../database/server";
 import { NextResponse } from "next/server";
 
-export async function DELETE(req, res) {
+export async function POST(request) {
   try {
-    const { resid } = req.query;
-    const sql = `DELETE FROM reserves WHERE resid = ${sid}`; 
-    
-    await db.query(sql, [resid], (err, result) => {
-      if (err) throw err;
+    const { sid, bid, days } = await request.json();
+
+    console.log({ "days": days });
+
+    const [year, month, day] = days.split("-");
+    const formattedDate = `${day}/${month}/${year}`;
+
+    const sqlDelete = `DELETE FROM reserves WHERE sid=${sid} AND bid=${bid} AND days='${formattedDate}'`;
+    const deleteResult = await new Promise((resolve, reject) => {
+      db.query(sqlDelete, (err, result) => {
+        if (err) return reject(err);
+        resolve(result);
+      });
     });
 
-    res.status(204).json({ message: "Reserve deleted successfully" });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Error deleting reserve" });
+    console.log(deleteResult);
+
+    let json_response = {
+      status: "success",
+      data: {
+        reserve: { sid, bid, days },
+      },
+    };
+
+    return new NextResponse(JSON.stringify(json_response), {
+      status: 201,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    let error_response = {
+      status: "error",
+      message: error.message,
+    };
+
+    return new NextResponse(JSON.stringify(error_response), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 }
