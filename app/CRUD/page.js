@@ -42,7 +42,7 @@ export default function Crud({ searchParams }) {
       <Link
         className="card"
         href={{
-          pathname: "../CRUD/update",
+          pathname: `../CRUD/update/${searchParams.value}`,
           query: {
             value: searchParams.value,
           },
