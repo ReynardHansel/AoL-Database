@@ -3,6 +3,11 @@ import { useState, useEffect } from "react";
 
 export default function Delete({ searchParams }) {
   const [sailorID, setSailorID] = useState("");
+  const [boatID, setBoatID] = useState("");
+
+  const [reserveSailor, setReserveSailor] = useState("")
+  const [reserveBoat, setReserveBoat] = useState("")
+  const [reserveDate, setReserveDate] = useState("")
 
   //*Triggered when user inputs something
   const handleChange = (e, setStateFunc) => {
@@ -17,14 +22,14 @@ export default function Delete({ searchParams }) {
     const sailorData = {
       sid: sailorID
     };
-    // const boatData = {
-    //   bid: boatID
-    // };
-    // const reserveData = {
-    //   sid: reserveSailor,
-    //   bid: reserveBoat,
-    //   days: reserveDate
-    // }
+    const boatData = {
+      bid: boatID
+    };
+    const reserveData = {
+      sid: reserveSailor,
+      bid: reserveBoat,
+      days: reserveDate
+    }
 
     //? Packaging data to be sent to backend based on searchParams.value
     let body_value;
@@ -33,10 +38,10 @@ export default function Delete({ searchParams }) {
         body_value = JSON.stringify(sailorData);
         break;
       case "boats":
-        // body_value = JSON.stringify(boatData);
+        body_value = JSON.stringify(boatData);
         break;
       case "reserves":
-        // body_value = JSON.stringify(reserveData);
+        body_value = JSON.stringify(reserveData);
         break;
 
       default:
@@ -82,10 +87,16 @@ export default function Delete({ searchParams }) {
         <form className="form">
           <div className="input-section">
             <label>Enter Boat's id to be deleted</label>
-            <input className="input" type="number" required />
+            <input 
+              className="input" 
+              type="number" 
+              required 
+              value={boatID}
+              onChange={(e) => handleChange(e, setBoatID)}
+            />
           </div>
 
-          <button type="submit" className="subm-btn">
+          <button type="submit" className="subm-btn" onClick={handleSubmit}>
             Delete
           </button>
         </form>
@@ -97,21 +108,39 @@ export default function Delete({ searchParams }) {
           <div className="flex gap-5">
             <div className="input-section items-end">
               <label>Enter Sailor id</label>
-              <input className="input w-1/2" type="number" required />
+              <input 
+                className="input w-1/2" 
+                type="number" 
+                required 
+                value={reserveSailor}
+                onChange={(e) => handleChange(e, setReserveSailor)}  
+              />
             </div>
 
             <div className="input-section items-start">
               <label>Enter Boat id</label>
-              <input className="input w-1/2" type="number" required />
+              <input 
+                className="input w-1/2" 
+                type="number" 
+                required 
+                value={reserveBoat}
+                onChange={(e) => handleChange(e, setReserveBoat)}  
+              />
             </div>
           </div>
 
           <div className="input-section">
             <label>Enter the specific date to be deleted</label>
-            <input className="input" type="date" required />
+            <input 
+              className="input" 
+              type="date" 
+              required 
+              value={reserveDate}
+              onChange={(e) => handleChange(e, setReserveDate)}
+            />
           </div>
 
-          <button type="submit" className="subm-btn">
+          <button type="submit" className="subm-btn" onClick={handleSubmit}>
             Delete
           </button>
         </form>
@@ -119,7 +148,6 @@ export default function Delete({ searchParams }) {
 
     default:
       return <p>Value error: {searchParams.value}</p>;
-      break;
   }
 }
 
