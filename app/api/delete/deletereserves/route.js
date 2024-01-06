@@ -13,7 +13,7 @@ export async function DELETE(request) {
     const [year, month, day] = days.split("-");
     const formattedDate = `${day}/${month}/${year}`;
 
-    const sql = `DELETE FROM sailors WHERE sid = ${sid} ${bid} ${days}`;
+    const sql = `DELETE FROM reserves WHERE sid = ${sid} AND bid = ${bid} AND days = '${formattedDate}'`;
 
     const data = await new Promise((resolve, reject) => {
       db.query(sql, (err, result) => {

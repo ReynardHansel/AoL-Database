@@ -5,7 +5,7 @@ export async function DELETE(request) {
   try {
     const { bid } = await request.json();
 
-    const sql = `DELETE FROM boats WHERE sid = ${bid}`;
+    const sql = `DELETE FROM boats WHERE bid = ${bid}`;
 
     const data = await new Promise((resolve, reject) => {
       db.query(sql, (err, result) => {
